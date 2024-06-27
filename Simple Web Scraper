@@ -1,0 +1,11 @@
+import requests
+from bs4 import BeautifulSoup
+
+def scrape_title(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    title = soup.find('title').text
+    return title
+
+url = "https://example.com"
+print(f"Title of the page: {scrape_title(url)}")
